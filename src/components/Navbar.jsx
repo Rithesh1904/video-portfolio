@@ -34,7 +34,7 @@ const Navbar = () => {
         {/* Left Side: Logo/Name */}
         <div className="flex items-center">
           <a href="#" className="text-white text-2xl font-black tracking-tight">
-            Leeshark<span className="text-red-500">.</span>
+            Rithesh M<span className="text-red-500">.</span>
           </a>
         </div>
 
@@ -53,8 +53,16 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Right Side: CTA Button */}
-        <div className="hidden md:block">
+        {/* Right Side: CTA Buttons */}
+        <div className="hidden md:flex items-center gap-4">
+          <a 
+            href="/resume.pdf" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/80 hover:text-white font-semibold transition-colors"
+          >
+            Resume
+          </a>
           <a 
             href="#contact" 
             className="px-6 py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300 backdrop-blur-md"

@@ -33,7 +33,7 @@ const Contact = () => {
           className="bg-[#ff2a2a] w-full md:w-[85%] lg:w-[75%] p-8 md:p-16 text-white flex flex-col justify-between"
         >
           <div className="text-xs font-bold tracking-[0.2em] mb-12 md:mb-20 uppercase opacity-90">
-            Reach Us
+            Connect With Me
           </div>
 
           <form className="flex flex-col gap-12 md:gap-16 w-full">

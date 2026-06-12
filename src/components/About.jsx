@@ -1,5 +1,5 @@
 import React from 'react';
-import stackImage from '../assets/about/image.png';
+import stackImage from '../assets/about/rithesh.jpg';
 import reactImage from '../assets/about/react.png';
 import nodeImage from '../assets/about/node.png';
 import mongoImage from '../assets/about/mongodb.png';
@@ -42,7 +42,7 @@ const About = () => {
           
           <h2 className="text-4xl md:text-5xl font-black text-black mb-4">Hello!</h2>
           <p className="text-lg font-bold mb-12 leading-relaxed max-w-3xl text-red-50">
-            Hi, my name is <span className="text-black text-xl font-black mx-1 tracking-wide uppercase">Leeshark</span>, a passionate full-stack developer based in [Location], dedicated to crafting clean, functional, and highly scalable web applications.
+            Hi, my name is <span className="text-black text-xl font-black mx-1 tracking-wide uppercase">Rithesh M</span>, a passionate Full Stack Developer and Machine Learning Engineer. I specialize in building robust applications using React, Python, and Java, with a strong focus on data-driven solutions and user-centric design.
           </p>
 
           {/* Horizontal Skills Row (Transparent & Large) */}

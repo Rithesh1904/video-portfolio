@@ -7,7 +7,7 @@ import heroVideo from '../assets/hero video/Developer_introduces_self_and_sk…_
 const Hero = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     AOS.init({
@@ -24,9 +24,32 @@ const Hero = () => {
       if (videoRef.current.paused) {
         videoRef.current.play();
         setIsPlaying(true);
+        
+        // Looping Voice Narration Function
+        const startNarration = () => {
+          if (!videoRef.current || videoRef.current.paused) return;
+          
+          const speech = new SpeechSynthesisUtterance();
+          speech.text = "Hi, I’m Rithesh M. I am an active learner with a strong ability to start from the beginning when necessary.";
+          speech.rate = 0.9;
+          speech.pitch = 1;
+          speech.volume = 1;
+          
+          // Loop when finished if video is still playing
+          speech.onend = () => {
+            if (videoRef.current && !videoRef.current.paused) {
+              startNarration();
+            }
+          };
+          
+          window.speechSynthesis.speak(speech);
+        };
+
+        startNarration();
       } else {
         videoRef.current.pause();
         setIsPlaying(false);
+        window.speechSynthesis.cancel(); // Stop speaking if paused
       }
     }
   };
@@ -55,7 +78,7 @@ const Hero = () => {
             data-aos="fade-up"
             className="text-white text-3xl md:text-5xl font-bold mb-4 tracking-tight"
           >
-            Hi, I’m a <br /> <span className="text-transparent [-webkit-text-stroke:1.5px_black]">Full Stack Developer</span>
+            Hi, I’m <br /> <span className="text-transparent [-webkit-text-stroke:1.5px_white]">Rithesh M</span>
           </h1>
 
           {/* Subheading */}
@@ -64,7 +87,7 @@ const Hero = () => {
             data-aos-delay="200"
             className="text-white text-sm md:text-lg font-semibold mb-8 max-w-md drop-shadow-md"
           >
-            I build fast, scalable and modern web applications using React, Node.js and Tailwind CSS.
+            A passionate Full Stack Developer and Machine Learning Enthusiast building intelligent web solutions.
           </p>
 
           {/* Buttons */}
@@ -74,14 +97,19 @@ const Hero = () => {
             className="flex flex-row flex-wrap items-center gap-3 w-full"
           >
             {/* Primary Button */}
-            <button className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 shadow-md">
+            <a href="#projects" className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 shadow-md">
               View My Work
-            </button>
+            </a>
             
-            {/* Secondary Button - Glassmorphism style */}
-            <button className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-black/40 border border-white text-white font-semibold hover:bg-black/60 transition-all duration-300 backdrop-blur-md">
-              Contact Me
-            </button>
+            {/* Secondary Button - Resume */}
+            <a 
+              href="/resume.pdf" 
+              target="_blank"
+              download
+              className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-black/40 border border-white text-white font-semibold hover:bg-black/60 transition-all duration-300 backdrop-blur-md"
+            >
+              Download CV
+            </a>
           </div>
         </div>
 
